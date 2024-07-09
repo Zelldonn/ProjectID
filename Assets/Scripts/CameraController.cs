@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
     private float CameraDistance = 3f, TargetCameraDistance = 3f;
     private float _Theta = 0.9834613f, _Phi = 4.5f;
     
-    bool _isPlaying = true;
    
     void Start()
     {
