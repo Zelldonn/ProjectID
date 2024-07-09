@@ -21,11 +21,14 @@ public class CameraController : MonoBehaviour
         transform.LookAt(_drone.transform, Vector3.up);
 
         _Phi += Input.GetAxis("Mouse X") * Time.deltaTime * 5f;
-        _Theta += Input.GetAxis("Mouse Y") * Time.deltaTime * 5f;
+        _Theta -= Input.GetAxis("Mouse Y") * Time.deltaTime * 5f;
+
+        _Phi += Input.GetAxis("VerticalG") * Time.deltaTime * 5f;
+        _Theta -= Input.GetAxis("HorizontalG") * Time.deltaTime * 5f;
 
         float x = CameraDistance * Mathf.Sin(_Theta) * Mathf.Cos(_Phi);
         float y = CameraDistance * Mathf.Sin(_Theta) * Mathf.Sin(_Phi);
-        float z = CameraDistance * Mathf.Cos(_Theta)
+        float z = CameraDistance * Mathf.Cos(_Theta);
 
         transform.position = new Vector3(x, z, y) + _drone.transform.position;
     }
