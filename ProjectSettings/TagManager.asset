@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Helice
   - Drone
+  - DroneInteraction
   layers:
   - Default
   - TransparentFX

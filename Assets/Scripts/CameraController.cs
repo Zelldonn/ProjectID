@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEngine.GraphicsBuffer;
+
 
 public class CameraController : MonoBehaviour
 {
@@ -29,6 +24,7 @@ public class CameraController : MonoBehaviour
 
     private void UpdateCameraPosition()
     {
+        if (_drone == null) return;
         if (Input.GetAxis("Fire2") != 0)
         {
             _Phi += Input.GetAxis("Mouse X") * Time.deltaTime * 5f;
@@ -47,6 +43,7 @@ public class CameraController : MonoBehaviour
 
     private void UpdateCamera()
     {
+        if (_drone == null) return;
         
         float x = CameraDistance * Mathf.Sin(_Theta) * Mathf.Cos(_Phi);
         float y = CameraDistance * Mathf.Sin(_Theta) * Mathf.Sin(_Phi);
@@ -63,12 +60,13 @@ public class CameraController : MonoBehaviour
     }
     private void UpdateCameraDistance()
     {
+        if (_drone == null) return;
+
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
             TargetCameraDistance = CameraDistance - Input.GetAxis("Mouse ScrollWheel") * 5f;
 
         if (Input.GetAxis("Mouse ScrollWheel") == 0)
             CameraDistance = Mathf.Lerp(CameraDistance, TargetCameraDistance, .1f);
 
-        
     }
 }
