@@ -4,24 +4,83 @@ using UnityEngine;
 
 public class ContextManager : MonoBehaviour
 {
-    enum Context
+
+    public enum EContext
     {
-        Player,
-        Drone,
+        CharacterContext,
+        DroneContext,
     };
+
+    private class Context
+    {
+        bool b_IsActive;
+        GameObject[] GO_objects;
+
+        public Context(string contextName)
+        {
+            GO_objects = GameObject.FindGameObjectsWithTag(contextName);
+            b_IsActive = true;
+        }
+
+        public void SetState(bool state)
+        {
+            if (GO_objects == null) { return; }
+            foreach (GameObject obj in GO_objects)
+            {
+                obj.SetActive(state);
+            }
+            b_IsActive = state;
+        }
+
+
+    }
+
+    string[] ContextNames = { "CharacterContext", "DroneContext" };
+    Dictionary<string, Context> ContextDictionnary = new Dictionary<string, Context>();
+
+    EContext currentContext = EContext.CharacterContext;
+
     void Start()
     {
-        
+        foreach(string ContextName in ContextNames)
+        {
+            ContextDictionnary.Add(ContextName, new Context(ContextName));
+        }
+
+        SetContext(EContext.CharacterContext);
     }
 
-    // Update is called once per frame
+    public void SetContext(EContext Context)
+    {
+
+        foreach(KeyValuePair<string, Context> entry in ContextDictionnary) {
+            entry.Value.SetState(false);
+        }
+        SetContextState(Context, true);
+    }
+
+    public void SetContextState(EContext Context, bool state)
+    {
+        string ContextName = Context.ToString("g");
+        ContextDictionnary[ContextName].SetState(state);
+        if(state == true)
+            currentContext = Context;
+    }
+
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            if(currentContext == EContext.CharacterContext)
+            {
+                SetContext(EContext.DroneContext);
+            }
+            else
+            {
+                SetContext(EContext.CharacterContext);
+            }
+            
+        }
     }
 
-    private void SetContext(Context context)
-    {
-
-    }
 }

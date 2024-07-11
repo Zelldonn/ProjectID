@@ -7,9 +7,14 @@ public class PickUpDroneManager : MonoBehaviour
     public GameObject Drone;
     private GameObject DroneInstance;
 
+    private ContextManager ContextManager;
+
     private float maxInteractionRange = 2.5f;
+
+    bool b_IsdroneDropped = false;
     void Start()
     {
+        ContextManager = GameObject.Find("Managers").GetComponent<ContextManager>();
     }
 
     // Update is called once per frame
@@ -25,11 +30,14 @@ public class PickUpDroneManager : MonoBehaviour
     {
         Vector3 spawnPosition = transform.position + transform.forward * maxInteractionRange;
         DroneInstance = Instantiate(Drone, spawnPosition, Quaternion.identity);
+        ContextManager.SetContextState(ContextManager.EContext.DroneContext, false);
+        b_IsdroneDropped = true;
     }
 
     void PickUpDrone()
     {
         Destroy(DroneInstance);
+        b_IsdroneDropped = false;
     }
 
     bool DroneIsInRange()
@@ -44,5 +52,10 @@ public class PickUpDroneManager : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    public bool IsDroneDropped()
+    {
+        return b_IsdroneDropped;
     }
 }
