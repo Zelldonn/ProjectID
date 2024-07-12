@@ -30,6 +30,8 @@ public class PickUpDroneManager : MonoBehaviour
     {
         Vector3 spawnPosition = transform.position + transform.forward * maxInteractionRange;
         DroneInstance = Instantiate(Drone, spawnPosition, Quaternion.identity);
+        // OPTI : This is not opti as we will try to find go each time
+        ContextManager.ForceFindContext(ContextManager.EContext.DroneContext);
         ContextManager.SetContextState(ContextManager.EContext.DroneContext, false);
         b_IsdroneDropped = true;
     }

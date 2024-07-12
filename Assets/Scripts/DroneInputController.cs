@@ -5,9 +5,11 @@ using UnityEngine;
 public class DroneInputController : MonoBehaviour
 {
     private FlightController fc;
+    Transform droneTransform;
     void Start()
     {
         fc = GameObject.FindGameObjectWithTag("Drone").GetComponent<FlightController>();
+        droneTransform = GameObject.FindGameObjectWithTag("Drone").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,11 @@ public class DroneInputController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
             fc.DecreaseRPM();
 
-        transform.Translate(transversalMovement * Time.deltaTime);
+        droneTransform.Translate(transversalMovement * Time.deltaTime);
+    }
+
+    private void Awake()
+    {
+        //fc = GameObject.FindGameObjectWithTag("Drone").GetComponent<FlightController>();
     }
 }

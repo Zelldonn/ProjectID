@@ -15,16 +15,24 @@ public class ContextManager : MonoBehaviour
     {
         bool b_IsActive;
         GameObject[] GO_objects;
+        string s_contextName;
 
         public Context(string contextName)
         {
             GO_objects = GameObject.FindGameObjectsWithTag(contextName);
             b_IsActive = true;
+            s_contextName = contextName;
         }
 
+        public void FindContextGameObject()
+        {
+            GO_objects = GameObject.FindGameObjectsWithTag(s_contextName);
+        }
         public void SetState(bool state)
         {
-            if (GO_objects == null) { return; }
+            if (GO_objects == null) {
+                return; 
+            }
             foreach (GameObject obj in GO_objects)
             {
                 obj.SetActive(state);
@@ -57,6 +65,12 @@ public class ContextManager : MonoBehaviour
             entry.Value.SetState(false);
         }
         SetContextState(Context, true);
+    }
+
+    public void ForceFindContext(EContext Context)
+    {
+        string ContextName = Context.ToString("g");
+        ContextDictionnary[ContextName].FindContextGameObject();
     }
 
     public void SetContextState(EContext Context, bool state)

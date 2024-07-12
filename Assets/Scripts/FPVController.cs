@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-public class PlayerController : MonoBehaviour
+public class FPVController : MonoBehaviour
 {
     public float sensitivity = 100f;
 
@@ -15,13 +15,11 @@ public class PlayerController : MonoBehaviour
     float currentSpeed;
     float speedSmoothVelocity;
 
-    Transform cameraTransform;
-    CharacterController controller;
+    public Transform cameraTransform, playerTransform;
+    CharacterController characterController;
     void Start()
     {
-        cameraTransform = GetComponentInChildren<Camera>().transform;
-        controller = GetComponentInChildren<CharacterController>();
-
+        characterController = GetComponentInParent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -40,15 +38,15 @@ public class PlayerController : MonoBehaviour
 
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-        Vector3 finalDirection = (keyboardDir.x * cameraTransform.right + keyboardDir.y * transform.forward) * currentSpeed;
+        Vector3 finalDirection = (keyboardDir.x * cameraTransform.right + keyboardDir.y * playerTransform.forward) * currentSpeed;
 
-        controller.Move(finalDirection * Time.deltaTime);
+        characterController.Move(finalDirection * Time.deltaTime);
     }
 
     private void LateUpdate()
     {
         Vector2 mouseDir = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        transform.eulerAngles += Vector3.up * mouseDir.x * sensitivity * Time.deltaTime;
+        playerTransform.eulerAngles += Vector3.up * mouseDir.x * sensitivity * Time.deltaTime;
 
 
         targetAngles.x = Mathf.Clamp(targetAngles.x - mouseDir.y * sensitivity * Time.deltaTime, -70, 80);
