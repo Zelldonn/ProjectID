@@ -15,10 +15,12 @@ public class GarageDoor : MonoBehaviour
     State state;
 
     MeshRenderer doorMesh;
+    BoxCollider collider;
 
     void Start()
     {
         doorMesh = GetComponent<MeshRenderer>();
+        collider = GetComponent<BoxCollider>();
     }
 
     public void SwitchState()
@@ -37,11 +39,13 @@ public class GarageDoor : MonoBehaviour
     {
         state = State.Closed;
         doorMesh.enabled = true;
+        collider.enabled = true;
     }
 
     void openDoor()
     {
         state = State.Openned;
         doorMesh.enabled = false;
+        collider.enabled = false;
     }
 }
