@@ -15,7 +15,7 @@ public class GarageDoor : MonoBehaviour
     State state;
 
     MeshRenderer doorMesh;
-    BoxCollider collider;
+    private new BoxCollider collider;
 
     void Start()
     {
