@@ -39,9 +39,13 @@ public class ContextManager : MonoBehaviour
             }
             b_IsActive = state;
         }
-
-
+        public bool CheckConditions()
+        {
+            return true;
+        }
     }
+
+
 
     string[] ContextNames = { "CharacterContext", "DroneContext" };
     Dictionary<string, Context> ContextDictionnary = new Dictionary<string, Context>();

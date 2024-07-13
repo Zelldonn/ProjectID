@@ -9,6 +9,7 @@ TagManager:
   - DroneInteraction
   - DroneContext
   - CharacterContext
+  - Interactable
   layers:
   - Default
   - TransparentFX
