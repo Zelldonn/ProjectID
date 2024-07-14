@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlightController : MonoBehaviour
+public class OLD_FlightController : MonoBehaviour
 {
     public float RPM = 0f;
     private float f_RPM_Variation_PerSeconde = 750;

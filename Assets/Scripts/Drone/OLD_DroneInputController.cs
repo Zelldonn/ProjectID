@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroneInputController : MonoBehaviour
+public class OLD_DroneInputController : MonoBehaviour
 {
-    private FlightController fc;
+    private OLD_FlightController fc;
     Transform droneTransform;
     void Start()
     {
-        fc = GameObject.FindGameObjectWithTag("Drone").GetComponent<FlightController>();
+        fc = GameObject.FindGameObjectWithTag("Drone").GetComponent<OLD_FlightController>();
         droneTransform = GameObject.FindGameObjectWithTag("Drone").GetComponent<Transform>();
     }
 
