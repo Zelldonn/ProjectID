@@ -1,11 +1,15 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
+[RequireComponent(typeof(PlayerInput))]
 public class CameraController : MonoBehaviour
 {
     private GameObject _drone;
     private float CameraDistance = 3f, TargetCameraDistance = 3f;
     private float _Theta = 0.9834613f, _Phi = 4.5f;
+
+    public Transform target;
    
     void Start()
     {
@@ -49,8 +53,8 @@ public class CameraController : MonoBehaviour
         float y = CameraDistance * Mathf.Sin(_Theta) * Mathf.Sin(_Phi);
         float z = CameraDistance * Mathf.Cos(_Theta);
 
-        Vector3 targetPosition = new Vector3(x, z, y) + _drone.transform.position;
-        transform.position = Vector3.Lerp(transform.position, targetPosition, .6f);
+        Vector3 targetRotation = new Vector3(x, z, y) + target.position;
+        transform.position = Vector3.Lerp(transform.position, targetRotation, .6f);
 
         Vector3 targetCameraPosition = _drone.transform.position;
         Vector3 newPos = Vector3.Lerp(_drone.transform.position, targetCameraPosition, .6f);
@@ -68,5 +72,12 @@ public class CameraController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") == 0)
             CameraDistance = Mathf.Lerp(CameraDistance, TargetCameraDistance, .1f);
 
+    }
+
+    private void OnDroneCamera(InputValue inputValue)
+    {
+        Vector2 stick = inputValue.Get<Vector2>();
+        _Phi += stick.x * Time.deltaTime * 5f;
+        _Theta -= stick.y * Time.deltaTime * 5f;
     }
 }

@@ -20,9 +20,10 @@ public class DroneEngine : MonoBehaviour, IEngine
         throw new System.NotImplementedException();
     }
 
-    public void UpdateEngine()
+    public void UpdateEngine(Rigidbody rb, DroneInputs inputs)
     {
-        throw new System.NotImplementedException();
+        Vector3 engineForce = transform.up * ((rb.mass * Physics.gravity.magnitude) + (maxPower * inputs.Throtlle)) / 4f;
+        rb.AddForce(engineForce, ForceMode.Force);
     }
 
 }
