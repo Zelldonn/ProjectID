@@ -20,11 +20,12 @@ public class PickUpDroneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E) && DroneInstance == null)
+        if (Input.GetKeyUp(KeyCode.F) && DroneInstance == null)
         {
-            DropDrone();
+            if (!IsInteracting())
+                DropDrone();
         }
-        else if (Input.GetKeyUp(KeyCode.E) && DroneIsInRange())
+        else if (Input.GetKeyUp(KeyCode.F) && DroneIsInRange())
             PickUpDrone();
     }
 
