@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d30097c858ab0146a1bb3caf8a71cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxInteractionDistance: 3
+  MaxInteractionDistance: 6
 --- !u!1 &1184671910278179853
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66091224b02f0474f9925db3a18f79d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.1
+  offset: 0.57
   target: {fileID: 2503637466674562139}
 --- !u!1 &5145851216929083163
 GameObject:
