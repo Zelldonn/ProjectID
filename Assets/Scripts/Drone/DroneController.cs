@@ -32,14 +32,15 @@ public class DroneController : Rigidbody_
 
     protected virtual void HandleEngines() 
     {
+
         foreach (IEngine engine in engines) 
         {
             engine.UpdateEngine(rb, droneInputs);
         }
-        //rb.AddForce(Vector3.up * rb.mass * (Physics.gravity.magnitude + Mathf.Sin(Time.time) * 0.1f));
     }
     protected virtual void HandleControls() 
     {
+
         float pitch = droneInputs.Cyclic.y * minMaxPitch;
         float roll = droneInputs.Cyclic.x * minMaxRoll;
         yaw += droneInputs.Yaw * yawPower;
@@ -50,7 +51,7 @@ public class DroneController : Rigidbody_
 
 
         Quaternion targetRotation = Quaternion.Euler(targetPitch, targetYaw, targetRoll);
-        //Quaternion rot = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+
         rb.MoveRotation(targetRotation);
     }
 }

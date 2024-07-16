@@ -3241,7 +3241,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.96
+  m_Intensity: 0.46
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3953,8 +3953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209cdcb36db45204b8eca4caf710b2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incrementSize: 5
-  Room: {fileID: 2880182644502184795, guid: c6fe82d154e2014419960a25391e0c92, type: 3}
 --- !u!4 &482412576
 Transform:
   m_ObjectHideFlags: 0
@@ -13972,6 +13970,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1527887292026677897, guid: 016e8e678e1b63449bd459217022d485,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4283869155330696128, guid: 016e8e678e1b63449bd459217022d485,
         type: 3}
       propertyPath: m_RenderPostProcessing
@@ -14026,6 +14029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271282805270872718, guid: 016e8e678e1b63449bd459217022d485,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7724487904307006283, guid: 016e8e678e1b63449bd459217022d485,
         type: 3}
