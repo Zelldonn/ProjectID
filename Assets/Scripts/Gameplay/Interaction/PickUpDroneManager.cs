@@ -20,9 +20,11 @@ public class PickUpDroneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F) && DroneInstance == null)
+        if (Input.GetKeyUp(KeyCode.E) && DroneInstance == null)
+        {
             DropDrone();
-        else if (Input.GetKeyUp(KeyCode.F) && DroneIsInRange())
+        }
+        else if (Input.GetKeyUp(KeyCode.E) && DroneIsInRange())
             PickUpDrone();
     }
 
@@ -59,5 +61,18 @@ public class PickUpDroneManager : MonoBehaviour
     public bool IsDroneDropped()
     {
         return b_IsdroneDropped;
+    }
+
+    bool IsInteracting()
+    {
+        RaycastHit hit;
+        Interactable interactable;
+
+        if (!Physics.Raycast(transform.position, transform.forward, out hit, 5.0f)) return false;
+
+        interactable = hit.collider.GetComponent<Interactable>();
+
+        if (interactable == null) return false;
+        return true;
     }
 }

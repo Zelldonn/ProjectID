@@ -21,6 +21,10 @@ public class GarageDoor : MonoBehaviour
     {
         doorMesh = GetComponent<MeshRenderer>();
         collider = GetComponent<BoxCollider>();
+        if (doorMesh.enabled)
+            state = State.Closed;
+        else
+            state = State.Openned;
     }
 
     public void SwitchState()

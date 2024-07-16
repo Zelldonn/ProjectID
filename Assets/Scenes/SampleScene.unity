@@ -11179,6 +11179,21 @@ PrefabInstance:
       propertyPath: garageDoor
       value: 
       objectReference: {fileID: 340004652}
+    - target: {fileID: 7894538675172976345, guid: bd782eb20a6a7c54997176b0c056ce92,
+        type: 3}
+      propertyPath: garageDoors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894538675172976345, guid: bd782eb20a6a7c54997176b0c056ce92,
+        type: 3}
+      propertyPath: garageDoors.Array.data[0]
+      value: 
+      objectReference: {fileID: 340004652}
+    - target: {fileID: 7894538675172976345, guid: bd782eb20a6a7c54997176b0c056ce92,
+        type: 3}
+      propertyPath: garageDoors.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

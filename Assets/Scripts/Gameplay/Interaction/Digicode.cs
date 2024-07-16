@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Digicode : Interactable
 {
-    public GameObject garageDoor;
+    public GameObject[] garageDoors;
     DigicodeUI ui;
     //public GarageDoor garageDoor_;
 
@@ -14,7 +14,12 @@ public class Digicode : Interactable
     }
     public override void Interact()
     {
-        garageDoor.GetComponentInChildren<GarageDoor>().SwitchState();
+        foreach (GameObject go in garageDoors) 
+        {
+            if (!go) continue;
+            go.GetComponentInChildren<GarageDoor>().SwitchState();
+        }
+        
     }
 
     public override void ShowUI()
