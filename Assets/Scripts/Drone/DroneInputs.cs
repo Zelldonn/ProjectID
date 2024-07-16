@@ -14,17 +14,6 @@ public class DroneInputs : MonoBehaviour
     public float Yaw { get => yaw; }
     public float Throtlle { get => throtlle; }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCyclic(InputValue inputValue)
     {
         cyclic = inputValue.Get<Vector2>();

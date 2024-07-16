@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
+
+[RequireComponent(typeof(FPVInputs))]
 public class FPVController : MonoBehaviour
 {
     public float sensitivity = 100f;
@@ -17,17 +16,19 @@ public class FPVController : MonoBehaviour
 
     public Transform cameraTransform, playerTransform;
     CharacterController characterController;
+    private FPVInputs fpvInputs;
     void Start()
     {
+        fpvInputs = GetComponent<FPVInputs>();
         characterController = GetComponentInParent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 keyboardRawInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 keyboardRawInput = fpvInputs.GetMoveDirection;
         Vector2 keyboardDir = keyboardRawInput;
-        keyboardDir.Normalize();
+        //keyboardDir.Normalize();
 
         bool runningDiagLeft = keyboardRawInput == new Vector2(-1, 1);
         bool runningDiagRight = keyboardRawInput == new Vector2(1, 1);
@@ -45,11 +46,11 @@ public class FPVController : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 mouseDir = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        playerTransform.eulerAngles += Vector3.up * mouseDir.x * sensitivity * Time.deltaTime;
+        Vector2 lookDir = fpvInputs.GetLookDirection;
+        playerTransform.eulerAngles += Vector3.up * lookDir.x * sensitivity * Time.deltaTime;
 
 
-        targetAngles.x = Mathf.Clamp(targetAngles.x - mouseDir.y * sensitivity * Time.deltaTime, -70, 80);
+        targetAngles.x = Mathf.Clamp(targetAngles.x - lookDir.y * sensitivity * Time.deltaTime, -70, 80);
         cameraTransform.localEulerAngles = targetAngles;
 
     }

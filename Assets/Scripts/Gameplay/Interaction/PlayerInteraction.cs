@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
 
         interactable.ShowUI();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             interactable.Interact();
         }
