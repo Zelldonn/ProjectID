@@ -14,8 +14,8 @@ public class DigicodeUI : MonoBehaviour
 
     void Update()
     {
-        if (lastTimeInteraction + keyHintStayDuration > Time.time)
-            UICanvas.enabled = false;
+        //if (lastTimeInteraction + keyHintStayDuration > Time.time)
+            //UICanvas.enabled = false;
     }
 
     public void setUIVisible(bool state)
