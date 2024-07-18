@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using FMODUnity;
 public class GarageDoor : MonoBehaviour
 {
+    [SerializeField] private EventReference _doorEventSound;
+    Animator doorAnimator;
     public enum State
     {
         Closed,
@@ -19,6 +21,7 @@ public class GarageDoor : MonoBehaviour
 
     void Start()
     {
+        doorAnimator = GetComponent<Animator>();
         doorMesh = GetComponent<MeshRenderer>();
         collider = GetComponent<BoxCollider>();
         if (doorMesh.enabled)
@@ -29,6 +32,7 @@ public class GarageDoor : MonoBehaviour
 
     public void SwitchState()
     {
+        AudioManager.instance.PlayOnShot(_doorEventSound, this.transform.position);
         if (state == State.Openned)
         {
             closeDoor();
@@ -42,14 +46,18 @@ public class GarageDoor : MonoBehaviour
     void closeDoor()
     {
         state = State.Closed;
-        doorMesh.enabled = true;
-        collider.enabled = true;
+        //doorMesh.enabled = true;
+        //collider.enabled = true;
+        doorAnimator.ResetTrigger("TriggerDoor");
+        doorAnimator.SetTrigger("TriggerDoor");
     }
 
     void openDoor()
     {
         state = State.Openned;
-        doorMesh.enabled = false;
-        collider.enabled = false;
+        //doorMesh.enabled = false;
+        //collider.enabled = false;
+        doorAnimator.ResetTrigger("TriggerDoor");
+        doorAnimator.SetTrigger("TriggerDoor");
     }
 }
