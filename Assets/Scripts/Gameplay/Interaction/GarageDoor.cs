@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity;
+
 public class GarageDoor : MonoBehaviour
 {
-    [SerializeField] private EventReference _doorEventSound;
     Animator doorAnimator;
     public enum State
     {
@@ -32,7 +31,7 @@ public class GarageDoor : MonoBehaviour
 
     public void SwitchState()
     {
-        AudioManager.instance.PlayOnShot(_doorEventSound, this.transform.position);
+        AudioManager.instance.PlayOnShot(FmodEvents.instance.garageDoor, this.transform.position);
         if (state == State.Openned)
         {
             closeDoor();
