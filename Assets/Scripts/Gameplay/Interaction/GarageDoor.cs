@@ -48,8 +48,8 @@ public class GarageDoor : MonoBehaviour
         state = State.Closed;
         //doorMesh.enabled = true;
         //collider.enabled = true;
-        doorAnimator.ResetTrigger("TriggerDoor");
-        doorAnimator.SetTrigger("TriggerDoor");
+        doorAnimator.ResetTrigger("OpenDoor");
+        doorAnimator.SetTrigger("CloseDoor");
     }
 
     void openDoor()
@@ -57,7 +57,7 @@ public class GarageDoor : MonoBehaviour
         state = State.Openned;
         //doorMesh.enabled = false;
         //collider.enabled = false;
-        doorAnimator.ResetTrigger("TriggerDoor");
-        doorAnimator.SetTrigger("TriggerDoor");
+        doorAnimator.ResetTrigger("CloseDoor");
+        doorAnimator.SetTrigger("OpenDoor");
     }
 }
