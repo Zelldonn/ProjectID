@@ -8,9 +8,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance {  get; private set; }
     void Awake()
     {
-        if (!instance)
+        if (instance != null)
         {
-            Debug.Log("Found more than one Audio Manager in the scene.");
+            Debug.LogError("Found more than one Audio Manager in the scene.");
         }
         instance = this;
     }

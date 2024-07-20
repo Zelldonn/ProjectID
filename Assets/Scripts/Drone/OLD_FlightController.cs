@@ -30,12 +30,12 @@ public class OLD_FlightController : MonoBehaviour
 
         float velocityY = Lift * 4 * Time.deltaTime + gravity * Time.deltaTime ;
 
-        transform.position += new Vector3(0, velocityY, 0);
-            if (transform.position.y < 0) transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        //transform.position += new Vector3(0, velocityY, 0);
+         //   if (transform.position.y < 0) transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 
         foreach(GameObject helice in helices) {
             float anglePerSecond = RPM * 6 * Time.deltaTime;
-            helice.transform.Rotate(0, anglePerSecond, 0, Space.World);
+            helice.transform.Rotate(0, anglePerSecond, 0, Space.Self);
         }
 
     }

@@ -27,6 +27,7 @@ public class DroneInteraction : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                AudioManager.instance.PlayOnShot(FmodEvents.instance.HackInteration, this.transform.position);
                 interactable.Interact();
             }
         }

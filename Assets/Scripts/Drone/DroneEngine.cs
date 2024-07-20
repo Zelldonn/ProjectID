@@ -4,7 +4,7 @@ using UnityEngine;
 public class DroneEngine : MonoBehaviour, IEngine
 {
 
-    [SerializeField] private float maxPower = 4f;
+    [SerializeField] private float maxPower = 8f;
     void Start() 
     {
         
@@ -22,6 +22,7 @@ public class DroneEngine : MonoBehaviour, IEngine
 
     public void UpdateEngine(Rigidbody rb, DroneInputs inputs)
     {
+ 
         Vector3 engineForce = transform.up * ((rb.mass * Physics.gravity.magnitude) + (maxPower * inputs.Throtlle)) / 4f;
         rb.AddForce(engineForce, ForceMode.Force);
     }
