@@ -31,7 +31,7 @@ public class GarageDoor : MonoBehaviour
 
     public void SwitchState()
     {
-        AudioManager.instance.PlayOnShot(FmodEvents.instance.garageDoor, this.transform.position);
+        AudioManager.instance.PlayOneShot(FmodEvents.instance.garageDoor, this.transform.position);
         if (state == State.Openned)
         {
             closeDoor();

@@ -23,6 +23,7 @@ public class DroneController : Rigidbody_
     {
         droneInputs = GetComponent<DroneInputs>();
         engines = GetComponentsInChildren<IEngine>().ToList();
+        AudioManager.instance.PlayOneShotAttached(FmodEvents.instance.Drone, this.gameObject);
     }
     protected override void HandlePhysics()
     {
@@ -32,7 +33,6 @@ public class DroneController : Rigidbody_
 
     protected virtual void HandleEngines() 
     {
-
         foreach (IEngine engine in engines) 
         {
             engine.UpdateEngine(rb, droneInputs);

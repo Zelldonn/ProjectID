@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: da392fdbd976c6c4b93aa76b6cb3f549,
+  m_LightingDataAsset: {fileID: 112000000, guid: a572ebc8209607448b71ecccdb691f96,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: b51814c2a3204814082b3a915cf53e16,
     type: 2}
@@ -3528,11 +3528,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <garageDoor>k__BackingField:
     Guid:
-      Data1: -1990878157
-      Data2: 1252995718
-      Data3: 1606601379
-      Data4: -1640107015
-    Path: event:/Garage door
+      Data1: 2043447012
+      Data2: 1274546515
+      Data3: -1294139242
+      Data4: 470252158
+    Path: event:/GarageDoor3D
   <HackInteration>k__BackingField:
     Guid:
       Data1: -701236769
@@ -3540,6 +3540,13 @@ MonoBehaviour:
       Data3: 311455932
       Data4: 1412143967
     Path: event:/Interaction
+  <Drone>k__BackingField:
+    Guid:
+      Data1: -1236579530
+      Data2: 1229667236
+      Data3: 1134979233
+      Data4: -1153043252
+    Path: event:/Engine3D
 --- !u!1001 &434751039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8505,10 +8512,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1416101005983197788, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: maxPower
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048656216000077032, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: maxPower
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5145851216929083163, guid: 57ccb3369b2faf64cb32c1f34b02928e,
         type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153713817492698351, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: maxPower
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476021962128087734, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: maxPower
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8479746798633860096, guid: 57ccb3369b2faf64cb32c1f34b02928e,
         type: 3}
@@ -9213,6 +9240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 5
   velocity3: {x: 0, y: 0, z: 0}
+  posX: 1
   target: 0
   target3: {fileID: 627664204}
   b_IsHolding: 0
