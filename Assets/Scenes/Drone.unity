@@ -8527,6 +8527,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 6025330395725145320, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: yawPower
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025330395725145320, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: minMaxRoll
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025330395725145320, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: weightInKg
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025330395725145320, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: minMaxPitch
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6153713817492698351, guid: 57ccb3369b2faf64cb32c1f34b02928e,
         type: 3}
       propertyPath: maxPower
@@ -8536,6 +8556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxPower
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072206886825045323, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8479746798633860096, guid: 57ccb3369b2faf64cb32c1f34b02928e,
         type: 3}
@@ -9238,12 +9263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9297437c139ea5e42a539777c09e4052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 5
-  velocity3: {x: 0, y: 0, z: 0}
-  posX: 1
-  target: 0
-  target3: {fileID: 627664204}
-  b_IsHolding: 0
 --- !u!1001 &1376906813
 PrefabInstance:
   m_ObjectHideFlags: 0

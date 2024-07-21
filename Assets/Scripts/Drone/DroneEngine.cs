@@ -22,8 +22,13 @@ public class DroneEngine : MonoBehaviour, IEngine
 
     public void UpdateEngine(Rigidbody rb, DroneInputs inputs)
     {
- 
-        Vector3 engineForce = transform.up * ((rb.mass * Physics.gravity.magnitude) + (maxPower * inputs.Throtlle)) / 4f;
+
+        Vector3 vectUp = transform.up;
+        vectUp.x = 0f;
+        vectUp.z = 0f;
+        float diff = 1 - vectUp.magnitude;
+        float finalDiff = Physics.gravity.magnitude * diff ;
+        Vector3 engineForce = transform.up * ((rb.mass * Physics.gravity.magnitude + finalDiff) + (maxPower * inputs.Throtlle)) / 4f;
         rb.AddForce(engineForce, ForceMode.Force);
     }
 
