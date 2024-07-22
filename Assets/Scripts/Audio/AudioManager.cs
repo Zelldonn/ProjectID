@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -23,5 +22,23 @@ public class AudioManager : MonoBehaviour
     public void PlayOneShotAttached(EventReference sound, GameObject go)
     {
         RuntimeManager.PlayOneShotAttached(sound, go);
+    }
+
+    public EventInstance CreateInstance(GameObject go, EventReference sound)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(sound);
+        RuntimeManager.AttachInstanceToGameObject(instance, go.transform);
+
+        return instance;
+    }
+
+    public void StartInstance(EventInstance eventInstance)
+    {
+        eventInstance.start();
+    }
+
+    public void SetInstanceParameterByName(EventInstance eventInstance, string paramName, float value)
+    {
+        eventInstance.setParameterByName(paramName, value);
     }
 }

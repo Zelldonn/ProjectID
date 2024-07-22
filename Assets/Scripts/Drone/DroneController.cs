@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using FMOD.Studio;
 
 public class DroneController : Rigidbody_
 {
@@ -19,20 +20,37 @@ public class DroneController : Rigidbody_
     private DroneInputs droneInputs;
     private List<IEngine> engines = new List<IEngine>();
 
+    public float engineRPM = 50f;
+
+    EventInstance soundInstance;
+
     void Start()
     {
         droneInputs = GetComponent<DroneInputs>();
         engines = GetComponentsInChildren<IEngine>().ToList();
-        AudioManager.instance.PlayOneShotAttached(FmodEvents.instance.Drone, this.gameObject);
+        soundInstance = AudioManager.instance.CreateInstance(this.gameObject, FmodEvents.instance.Drone);
+        soundInstance.start();
+        AudioManager.instance.SetInstanceParameterByName(soundInstance, "RPM", engineRPM);
+
+        //AudioManager.instance.PlayOneShotAttached(FmodEvents.instance.Drone, this.gameObject);
+
     }
     protected override void HandlePhysics()
     {
         HandleEngines();
         HandleControls();
+
+        float targetRPM = 50f + Mathf.Abs(droneInputs.Cyclic.y) * 15f + Mathf.Abs(droneInputs.Cyclic.x) * 15f + Mathf.Abs(droneInputs.Yaw) * 8f + droneInputs.Throtlle * 20f;
+        engineRPM = Mathf.Lerp(targetRPM, engineRPM, Time.deltaTime * lerpSpeed);
+
+        engineRPM += Mathf.Sin(Time.time * 2f) * 7f;
+        AudioManager.instance.SetInstanceParameterByName(soundInstance, "RPM", engineRPM );
     }
 
     protected virtual void HandleEngines() 
     {
+        
+        
         foreach (IEngine engine in engines) 
         {
             engine.UpdateEngine(rb, droneInputs);
@@ -49,6 +67,7 @@ public class DroneController : Rigidbody_
         targetRoll = Mathf.Lerp(targetRoll, roll, Time.deltaTime * lerpSpeed);
         targetYaw = Mathf.Lerp(targetYaw, yaw, Time.deltaTime * lerpSpeed);
 
+        
 
         Quaternion targetRotation = Quaternion.Euler(targetPitch, targetYaw, targetRoll);
 
