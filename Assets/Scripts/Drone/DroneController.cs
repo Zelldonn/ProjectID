@@ -22,31 +22,15 @@ public class DroneController : Rigidbody_
 
     public float engineRPM = 50f;
 
-    EventInstance soundInstance;
-
     void Start()
     {
         droneInputs = GetComponent<DroneInputs>();
         engines = GetComponentsInChildren<IEngine>().ToList();
-
-        soundInstance = AudioManager.instance.CreateInstance(FmodEvents.instance.Drone);
-        soundInstance = AudioManager.instance.AttachInstanceToGameObject(soundInstance, this.transform, this.rb);
-        soundInstance.start();
     }
     protected override void HandlePhysics()
     {
         HandleEngines();
         HandleControls();
-        HandleSFX();
-    }
-
-    void HandleSFX()
-    {
-        float targetRPM = 50f + Mathf.Abs(droneInputs.Cyclic.y) * 15f + Mathf.Abs(droneInputs.Cyclic.x) * 15f + Mathf.Abs(droneInputs.Yaw) * 8f + droneInputs.Throtlle * 20f;
-        engineRPM = Mathf.Lerp(targetRPM, engineRPM, Time.deltaTime * lerpSpeed);
-
-        engineRPM += Mathf.Sin(Time.time * 2f) * 7f;
-        AudioManager.instance.SetInstanceParameterByName(soundInstance, "RPM", engineRPM);
     }
 
     protected virtual void HandleEngines() 
