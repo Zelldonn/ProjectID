@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DroneInteraction : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class DroneInteraction : MonoBehaviour
             interactable = digicode.GetComponent<Interactable>();
             interactable.ShowUI();
 
-            if (Input.GetKeyDown(KeyCode.F))
+            bool buttonPressed = Gamepad.current.buttonWest.wasPressedThisFrame;
+            if (Input.GetKeyDown(KeyCode.F) || buttonPressed)
             {
                 AudioManager.instance.PlayOneShot(FmodEvents.instance.HackInteration, this.transform.position);
                 interactable.Interact();
