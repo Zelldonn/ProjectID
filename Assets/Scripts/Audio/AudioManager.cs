@@ -24,10 +24,15 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShotAttached(sound, go);
     }
 
-    public EventInstance CreateInstance(GameObject go, EventReference sound)
+    public EventInstance CreateInstance(EventReference sound)
     {
         EventInstance instance = RuntimeManager.CreateInstance(sound);
-        RuntimeManager.AttachInstanceToGameObject(instance, go.transform);
+        return instance;
+    }
+
+    public EventInstance AttachInstanceToGameObject(EventInstance instance, Transform transform, Rigidbody rb)
+    {
+        RuntimeManager.AttachInstanceToGameObject(instance, transform, rb);
 
         return instance;
     }

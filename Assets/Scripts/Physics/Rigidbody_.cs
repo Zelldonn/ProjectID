@@ -31,4 +31,6 @@ public abstract class Rigidbody_: MonoBehaviour
     }
 
     protected virtual void HandlePhysics() { }
+
+    public Rigidbody GetRigidbody() { return rb; }
 }
