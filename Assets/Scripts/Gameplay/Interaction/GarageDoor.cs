@@ -21,16 +21,12 @@ public class GarageDoor : MonoBehaviour
     void Start()
     {
         doorAnimator = GetComponent<Animator>();
-        doorMesh = GetComponent<MeshRenderer>();
-        collider = GetComponent<BoxCollider>();
-        if (doorMesh.enabled)
-            state = State.Closed;
-        else
-            state = State.Openned;
     }
 
     public void SwitchState()
     {
+        if (state == State.Openning || state == State.Closing) return;
+
         AudioManager.instance.PlayOneShot(FmodEvents.instance.garageDoor, this.transform.position);
         if (state == State.Openned)
         {
@@ -42,20 +38,25 @@ public class GarageDoor : MonoBehaviour
         }
     }
 
-    void closeDoor()
+    public void OnClosed()
     {
         state = State.Closed;
-        //doorMesh.enabled = true;
-        //collider.enabled = true;
+    }
+    public void OnOpenned()
+    {
+        state = State.Openned;
+    }
+
+    void closeDoor()
+    {
+        state = State.Closing;
         doorAnimator.ResetTrigger("OpenDoor");
         doorAnimator.SetTrigger("CloseDoor");
     }
 
     void openDoor()
     {
-        state = State.Openned;
-        //doorMesh.enabled = false;
-        //collider.enabled = false;
+        state = State.Openning;
         doorAnimator.ResetTrigger("CloseDoor");
         doorAnimator.SetTrigger("OpenDoor");
     }

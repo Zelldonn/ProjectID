@@ -3547,6 +3547,13 @@ MonoBehaviour:
       Data3: 1134979233
       Data4: -1153043252
     Path: event:/DroneEngine
+  <Music>k__BackingField:
+    Guid:
+      Data1: -664775539
+      Data2: 1216814462
+      Data3: -665272432
+      Data4: -1190951472
+    Path: event:/Music
 --- !u!1001 &434751039
 PrefabInstance:
   m_ObjectHideFlags: 0

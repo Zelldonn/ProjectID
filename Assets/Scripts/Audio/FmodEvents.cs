@@ -13,6 +13,9 @@ public class FmodEvents : MonoBehaviour
     
     [field: Header("DroneSFX")]
     [field: SerializeField] public EventReference Drone { get; private set; }
+    
+    [field: Header("Music")]
+    [field: SerializeField] public EventReference Music { get; private set; }
     public static FmodEvents instance { get; private set; }
 
     private void Awake()

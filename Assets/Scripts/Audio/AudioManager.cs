@@ -12,9 +12,10 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("Found more than one Audio Manager in the scene.");
         }
         instance = this;
+        PlayOneShot(FmodEvents.instance.Music);
     }
 
-    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    public void PlayOneShot(EventReference sound, Vector3 worldPos = default)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
