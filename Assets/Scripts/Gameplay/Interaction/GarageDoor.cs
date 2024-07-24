@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GarageDoor : MonoBehaviour
 {
-    Animator doorAnimator;
     public enum State
     {
         Closed,
@@ -13,10 +12,8 @@ public class GarageDoor : MonoBehaviour
         Openning,
     }
 
+    Animator doorAnimator;
     State state;
-
-    MeshRenderer doorMesh;
-    private new BoxCollider collider;
 
     void Start()
     {
