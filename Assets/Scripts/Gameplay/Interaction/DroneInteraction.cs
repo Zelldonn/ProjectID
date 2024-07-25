@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class DroneInteraction : MonoBehaviour
 {
@@ -16,12 +17,16 @@ public class DroneInteraction : MonoBehaviour
     {
         foreach(GameObject digicode in digicodes)
         {
+            
             float Distance = Mathf.Abs(Vector3.Distance(digicode.transform.position, transform.position));
-            //Vector3 newVector = digicode.transform.position - transform.position;
 
-            //float Angle = Mathf.Abs(Vector3.Angle(newVector, transform.position));
             if (Distance > MaxInteractionDistance) continue;
-            //Debug.Log(Angle);
+
+            if (Physics.Linecast(transform.position, digicode.transform.position))
+            {
+                continue;
+            }
+                
 
             interactable = digicode.GetComponent<Interactable>();
             interactable.ShowUI();

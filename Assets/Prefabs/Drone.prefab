@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5390340140929359472}
   - component: {fileID: 424440485495272849}
   - component: {fileID: 6225432290297861389}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 304408879116425367}
   - component: {fileID: 6058717634915452125}
   - component: {fileID: 7539968111483323823}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 2966005369596707491}
   - component: {fileID: 6998456335959356736}
   - component: {fileID: 3119765785297591843}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 83045476790134929}
   - component: {fileID: 7120564280587625394}
   - component: {fileID: 1844094925432388307}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6783705391362517800}
   - component: {fileID: 4914446255519189522}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Interaction
   m_TagString: DroneContext
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 7451459377597795534}
   - component: {fileID: 5267673404296911885}
   - component: {fileID: 7430363636981975629}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 8444467790081380643}
   - component: {fileID: 7360849300248567982}
   - component: {fileID: 1804217362314697322}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 4471782250770188829}
   - component: {fileID: 8479746798633860096}
   - component: {fileID: 248839676282554532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 1333302815444139171}
   - component: {fileID: 2515175524589603822}
   - component: {fileID: 6791898266160636531}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154128712196261688}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 8642276334888888324}
   - component: {fileID: 7012826557143019481}
   - component: {fileID: 3048656216000077032}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,9 +1000,9 @@ Transform:
   m_GameObject: {fileID: 2597829349592415988}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.555, y: 0, z: -2.736}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.417, y: 0.244, z: -2.736}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6889977964995673951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1016,7 +1016,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 2204238671611599708}
   - component: {fileID: 9128442853031493721}
   - component: {fileID: 2409368586179766524}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6974997150173836254}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Helice (2)
   m_TagString: Helice
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ GameObject:
   - component: {fileID: 6275162109996653672}
   - component: {fileID: 3408671012808462316}
   - component: {fileID: 1416101005983197788}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1207,9 +1207,9 @@ Transform:
   m_GameObject: {fileID: 3059065512000282427}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: 0, z: 0.82}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.429, y: 0.24399999, z: 0.82}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6889977964995673951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1223,7 +1223,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 177474944556626879}
   - component: {fileID: 3982500577494697113}
   - component: {fileID: 8771010255506124376}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 4813364293793491317}
   - component: {fileID: 7202009614866237688}
   - component: {fileID: 6153713817492698351}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,9 +1381,9 @@ Transform:
   m_GameObject: {fileID: 3792746700298602488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: 0, z: -2.747}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 1.429, y: 0.24399999, z: -2.747}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6889977964995673951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1397,7 +1397,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1430,7 +1430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5529244940771929437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Helice (3)
   m_TagString: Helice
   m_Icon: {fileID: 0}
@@ -1465,7 +1465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467334858987532299}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 2187986141236231939}
   - component: {fileID: 3234670216171216366}
   - component: {fileID: 327884331506610810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 7411147048904231751}
   - component: {fileID: 4623912494208606104}
   - component: {fileID: 9144874082746290763}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1794,7 +1794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566552118879218664}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Drone
   m_TagString: Drone
   m_Icon: {fileID: 0}
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 1427762826949444857}
   - component: {fileID: 2639811748613913420}
   - component: {fileID: 2215183408350856496}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1932,7 +1932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069424339650384809}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DroneContext
   m_TagString: DroneContext
   m_Icon: {fileID: 0}
@@ -1965,7 +1965,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7568342931177334686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Helice
   m_TagString: Helice
   m_Icon: {fileID: 0}
@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 5037578614595235951}
   - component: {fileID: 5646326736308213847}
   - component: {fileID: 5047703253033502011}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2106,7 +2106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5900943677845443370}
   - component: {fileID: 4037958142251840612}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: InputController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2171,7 +2171,7 @@ GameObject:
   - component: {fileID: 1938380021266934941}
   - component: {fileID: 3918239798714022423}
   - component: {fileID: 9079008849340638676}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,7 +2273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708020316825481495}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Helice (1)
   m_TagString: Helice
   m_Icon: {fileID: 0}
@@ -2308,7 +2308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5659099404243378535}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: InteractionCollider
   m_TagString: DroneInteraction
   m_Icon: {fileID: 0}
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 6418258060952574855}
   - component: {fileID: 24632653501697410}
   - component: {fileID: 6476021962128087734}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2357,9 +2357,9 @@ Transform:
   m_GameObject: {fileID: 7810213530788720732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.566, y: 0, z: 0.809}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.4280001, y: 0.24399999, z: 0.809}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6889977964995673951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2373,7 +2373,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2409,7 +2409,7 @@ GameObject:
   - component: {fileID: 5111638727739990533}
   - component: {fileID: 6904482088821555411}
   - component: {fileID: 1293765390467214005}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 7291363621573758370}
   - component: {fileID: 1205673089428008428}
   - component: {fileID: 1606130999215481300}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,7 +2621,7 @@ GameObject:
   - component: {fileID: 4836574051889559026}
   - component: {fileID: 2346966680822081527}
   - component: {fileID: 6524142951565838324}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2726,7 +2726,7 @@ GameObject:
   - component: {fileID: 4029726374966730173}
   - component: {fileID: 1094532130070628471}
   - component: {fileID: 906041026985329753}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2831,7 +2831,7 @@ GameObject:
   - component: {fileID: 5757807647783098913}
   - component: {fileID: 9088923583928616690}
   - component: {fileID: 6563626601896203343}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2933,7 +2933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889977964995673951}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Engines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2971,7 +2971,7 @@ GameObject:
   - component: {fileID: 3502273892862422220}
   - component: {fileID: 2206044236323479741}
   - component: {fileID: 2069715023698477966}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
