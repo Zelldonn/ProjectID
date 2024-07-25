@@ -35,7 +35,7 @@ public class OLD_FlightController : MonoBehaviour
 
         foreach(GameObject helice in helices) {
             float anglePerSecond = RPM * 6 * Time.deltaTime;
-            helice.transform.Rotate(0, anglePerSecond, 0, Space.Self);
+            helice.transform.Rotate(0, 0, anglePerSecond, Space.Self);
         }
 
     }
