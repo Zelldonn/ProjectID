@@ -12,12 +12,29 @@ public class GarageDoor : MonoBehaviour
         Openning,
     }
 
-    Animator doorAnimator;
-    State state;
+    Animator animator;
+
+    [Header("Door state")]
+    public State state;
 
     void Start()
     {
-        doorAnimator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+
+        // Set initial state based on the isOpenAtStart variable
+        if (state == State.Openned)
+        {
+            PlayAnimation("GarageDoorOpenning", 1.0f);
+        }
+        else
+        {
+            PlayAnimation("GarageDoorClosing", 1.0f);
+        }
+    }
+
+    private void PlayAnimation(string stateName, float normalizedTime)
+    {
+        animator.Play(stateName, 0, normalizedTime);
     }
 
     public void SwitchState()
@@ -47,14 +64,14 @@ public class GarageDoor : MonoBehaviour
     void closeDoor()
     {
         state = State.Closing;
-        doorAnimator.ResetTrigger("OpenDoor");
-        doorAnimator.SetTrigger("CloseDoor");
+        animator.ResetTrigger("OpenDoor");
+        animator.SetTrigger("CloseDoor");
     }
 
     void openDoor()
     {
         state = State.Openning;
-        doorAnimator.ResetTrigger("CloseDoor");
-        doorAnimator.SetTrigger("OpenDoor");
+        animator.ResetTrigger("CloseDoor");
+        animator.SetTrigger("OpenDoor");
     }
 }
