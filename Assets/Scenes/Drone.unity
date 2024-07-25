@@ -98,7 +98,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: a572ebc8209607448b71ecccdb691f96,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: b51814c2a3204814082b3a915cf53e16,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 58d731520cba7bd4eb2f2039094e2efe,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -8483,6 +8483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479746798633860096, guid: 57ccb3369b2faf64cb32c1f34b02928e,
+        type: 3}
+      propertyPath: RPM
+      value: 2500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
