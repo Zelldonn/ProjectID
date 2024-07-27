@@ -31,7 +31,9 @@ public class DroneInteraction : MonoBehaviour
             interactable = digicode.GetComponent<Interactable>();
             interactable.ShowUI();
 
-            bool buttonPressed = Gamepad.current.buttonWest.wasPressedThisFrame;
+            bool buttonPressed = false;
+            if (Gamepad.current != null)
+                buttonPressed = Gamepad.current.buttonWest.wasPressedThisFrame;
             if (Input.GetKeyDown(KeyCode.F) || buttonPressed)
             {
                 AudioManager.instance.PlayOneShot(FmodEvents.instance.HackInteration, this.transform.position);

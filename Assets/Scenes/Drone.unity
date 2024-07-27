@@ -8484,11 +8484,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone
       objectReference: {fileID: 0}
-    - target: {fileID: 8479746798633860096, guid: 57ccb3369b2faf64cb32c1f34b02928e,
-        type: 3}
-      propertyPath: RPM
-      value: 2500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
