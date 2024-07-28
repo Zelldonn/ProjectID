@@ -10,7 +10,7 @@ public class Digicode : Interactable
 
     private void Start()
     {
-        ui = GetComponentInChildren<DigicodeUI>();
+        ui = GetComponent<DigicodeUI>();
     }
     public override void Interact()
     {
