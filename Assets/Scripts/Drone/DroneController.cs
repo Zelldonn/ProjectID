@@ -10,6 +10,7 @@ public class DroneController : Rigidbody_
     [SerializeField] private float minMaxPitch = 30f;
     [SerializeField] private float minMaxRoll = 30f;
     [SerializeField] private float yawPower = 4f;
+    private float rollYawFactor = -1f;
 
     private float lerpSpeed = 5f;
     private float yaw;
@@ -47,7 +48,34 @@ public class DroneController : Rigidbody_
 
         float pitch = droneInputs.Cyclic.y * minMaxPitch;
         float roll = droneInputs.Cyclic.x * minMaxRoll;
-        yaw += droneInputs.Yaw * yawPower;
+
+        float PitchFactor= 0f;
+        float yawOverride = droneInputs.Cyclic.x;
+        if (droneInputs.Cyclic.y == 0)
+            PitchFactor = 0.6f;
+        else
+            PitchFactor = droneInputs.Cyclic.y;
+
+        float reverseThreshold = -0.8f;
+
+        
+
+        if (droneInputs.Cyclic.y == 0)
+            PitchFactor = 1f;
+        else
+        {
+            if (droneInputs.Cyclic.y < reverseThreshold)
+            {
+                PitchFactor = droneInputs.Cyclic.y;
+            }
+            else
+                PitchFactor = Mathf.Abs(droneInputs.Cyclic.y);
+        }
+
+        yaw += droneInputs.Yaw * yawPower + yawOverride * rollYawFactor * (1+PitchFactor);
+        //else
+        // yaw += droneInputs.Yaw * yawPower;
+
 
         targetPitch = Mathf.Lerp(targetPitch, pitch, Time.deltaTime * lerpSpeed);
         targetRoll = Mathf.Lerp(targetRoll, roll, Time.deltaTime * lerpSpeed);

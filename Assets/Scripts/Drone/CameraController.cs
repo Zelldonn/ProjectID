@@ -1,18 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 [RequireComponent(typeof(PlayerInput))]
 public class CameraController : MonoBehaviour
 {
     //private GameObject _drone;
-    private float CameraDistance = 3f, TargetCameraDistance = 3f;
+    private float CameraDistance = 3f, TargetCameraDistance = 3f, maxCameraDistance = 10f;
     private float _Theta = 0.9834613f, _Phi = 4.5f;
 
     public float offset = 0.1f;
 
     public Transform target;
-   
+
+    int layerMask = ~(1 << 2);
     void Start()
     {
         //_drone = GameObject.FindGameObjectWithTag("Drone");
@@ -56,10 +58,11 @@ public class CameraController : MonoBehaviour
         Vector3 targetRotation = new Vector3(x, z, y) + target.position;
         transform.position = Vector3.Lerp(transform.position, targetRotation, .6f);
 
+        CameraClip();
+
         Vector3 targetCameraPosition = target.transform.position;
         Vector3 newPos = Vector3.Lerp(target.transform.position, targetCameraPosition, .6f);
 
-        //transform.LookAt(_drone.transform, Vector3.up);
         transform.LookAt(newPos, Vector3.up);
     }
     private void UpdateCameraDistance()
@@ -80,4 +83,19 @@ public class CameraController : MonoBehaviour
         _Phi += stick.x * Time.deltaTime * 5f;
         _Theta -= stick.y * Time.deltaTime * 5f;
     }
+
+    private void CameraClip()
+    {
+
+        Vector3 direction = this.transform.position - target.position;
+        Ray ray = new Ray(target.position, direction);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, CameraDistance, layerMask)) 
+        {
+            transform.position = hit.point;
+        }
+        
+    }
+
 }
