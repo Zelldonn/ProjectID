@@ -28,6 +28,7 @@ public abstract class Rigidbody_: MonoBehaviour
         if (!rb) return;
 
         HandlePhysics();
+
     }
 
     protected virtual void HandlePhysics() { }

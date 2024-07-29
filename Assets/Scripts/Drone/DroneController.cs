@@ -36,8 +36,6 @@ public class DroneController : Rigidbody_
 
     protected virtual void HandleEngines() 
     {
-        
-        
         foreach (IEngine engine in engines) 
         {
             engine.UpdateEngine(rb, droneInputs);
@@ -90,5 +88,6 @@ public class DroneController : Rigidbody_
         Quaternion targetRotation = Quaternion.Euler(targetPitch, targetYaw, targetRoll);
 
         rb.MoveRotation(targetRotation);
+       
     }
 }
