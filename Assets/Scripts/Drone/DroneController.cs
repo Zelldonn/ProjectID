@@ -45,8 +45,12 @@ public class DroneController : Rigidbody_
     }
     protected virtual void HandleControls() 
     {
+        float pitch;
+        if (droneInputs.Throtlle != 0)
+            pitch = droneInputs.Cyclic.y * minMaxPitch + Mathf.Abs(droneInputs.Throtlle) * 30 * droneInputs.Cyclic.y;
+        else
+            pitch = droneInputs.Cyclic.y * minMaxPitch;
 
-        float pitch = droneInputs.Cyclic.y * minMaxPitch;
         float roll = droneInputs.Cyclic.x * minMaxRoll;
 
         float PitchFactor= 0f;
