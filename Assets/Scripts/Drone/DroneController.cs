@@ -43,6 +43,7 @@ public class DroneController : Rigidbody_
     }
     protected virtual void HandleControls() 
     {
+        // TODO : Refactor this function
         float pitch;
         if (droneInputs.Throtlle != 0)
             pitch = droneInputs.Cyclic.y * minMaxPitch + Mathf.Abs(droneInputs.Throtlle) * 30 * droneInputs.Cyclic.y;
@@ -79,15 +80,16 @@ public class DroneController : Rigidbody_
         // yaw += droneInputs.Yaw * yawPower;
 
 
-        targetPitch = Mathf.Lerp(targetPitch, pitch, Time.deltaTime * lerpSpeed);
-        targetRoll = Mathf.Lerp(targetRoll, roll, Time.deltaTime * lerpSpeed);
-        targetYaw = Mathf.Lerp(targetYaw, yaw, Time.deltaTime * lerpSpeed);
+        targetPitch = Mathf.Lerp(targetPitch, pitch, Time.fixedDeltaTime * lerpSpeed);
+        targetRoll = Mathf.Lerp(targetRoll, roll, Time.fixedDeltaTime * lerpSpeed);
+        targetYaw = Mathf.Lerp(targetYaw, yaw, Time.fixedDeltaTime * lerpSpeed);
 
         
 
         Quaternion targetRotation = Quaternion.Euler(targetPitch, targetYaw, targetRoll);
-
         rb.MoveRotation(targetRotation);
-       
+
+
+        //rb.AddTorque(new Vector3(pitch, droneInputs.Yaw, roll) * Time.fixedDeltaTime);
     }
 }

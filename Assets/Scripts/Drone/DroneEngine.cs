@@ -5,15 +5,6 @@ public class DroneEngine : MonoBehaviour, IEngine
 {
 
     [SerializeField] private float maxPower = 8f;
-    void Start() 
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void InitEngine()
     {
@@ -28,8 +19,10 @@ public class DroneEngine : MonoBehaviour, IEngine
         vectUp.z = 0f;
         float diff = 1 - vectUp.magnitude;
         float finalDiff = Physics.gravity.magnitude * diff ;
+
+
         Vector3 engineForce = transform.up * ((rb.mass * Physics.gravity.magnitude + finalDiff) + (maxPower * inputs.Throtlle)) / 4f;
-        rb.AddForce(engineForce, ForceMode.Force);
+        rb.AddForce(engineForce);
     }
 
 }
