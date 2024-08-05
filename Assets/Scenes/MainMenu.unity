@@ -151,8 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3ae6e7bf2b4ab47ad0507f63f8c9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1838704127}
   mainMenu: {fileID: 1910172469}
+  optionMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!4 &129526474
 Transform:
   m_ObjectHideFlags: 0
@@ -364,18 +365,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1838704127 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2816133125367098250, guid: aeb0afef3f42b854d91d6dfe477ad7c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 32977491212171486}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1af9e652da8b894f8bf55154a7f9e74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1910172469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4875550653758040841, guid: eb33d2dea206bd44b9ae87961d418fce,
@@ -611,6 +600,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 122
       objectReference: {fileID: 0}
+    - target: {fileID: 8113350095545476999, guid: eb33d2dea206bd44b9ae87961d418fce,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e08c3793635eb24caf36556ac95c236,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

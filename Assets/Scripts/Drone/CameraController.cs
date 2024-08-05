@@ -17,12 +17,19 @@ public class CameraController : MonoBehaviour
     public Transform target;
 
     public float controllerSensitivity = 2f;
+    public float mouseSensitivity = 5f;
 
     int layerMask = ~(1 << 2);
+
+    public static CameraController instance { get; private set; }
     void Start()
     {
-        //_drone = GameObject.FindGameObjectWithTag("Drone");
-
+        if(instance != null)
+        {
+            Debug.LogError("Cannot have multiple instance of Camera Controller");
+            return;
+        }
+        instance = this;
         UpdateCamera();
     }
 
@@ -39,8 +46,8 @@ public class CameraController : MonoBehaviour
         if (target == null) return;
         if (Input.GetAxis("Fire2") != 0)
         {
-            _Phi += Input.GetAxis("Mouse X") * Time.deltaTime * 5f;
-            _Theta -= Input.GetAxis("Mouse Y") * Time.deltaTime * 5f;
+            _Phi += Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
+            _Theta -= Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
 
             const float epsylon = 0.5f;
             if(_Theta > Mathf.PI - epsylon) _Theta = Mathf.PI - epsylon;
@@ -119,4 +126,15 @@ public class CameraController : MonoBehaviour
         return false;
     }
 
+    public void SetMouseSensitivity(float percentage)
+    {
+        float s = Mathf.Clamp(percentage, 1, 20);
+        mouseSensitivity = s;
+    }
+
+    public void SetControllerSensitivity(float percentage)
+    {
+        float s = Mathf.Clamp(percentage, 1, 20);
+        controllerSensitivity = s;
+    }
 }

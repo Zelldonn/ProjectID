@@ -5,13 +5,25 @@ using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-    [SerializeField] Slider SoundAll;
+    [field: Header("General")]
     [SerializeField] Button Back;
+
+    [field: Header("Sound")]
+    [SerializeField] Slider SoundAll;
+
+    [field: Header("Camera")]
+    [SerializeField] Slider MouseSensi;
+    [SerializeField] Slider ControllerSensi;
+
 
     [SerializeField] PauseManager manager;
     void Start()
     {
         SoundAll.onValueChanged.AddListener(OnChange);
+
+        MouseSensi.onValueChanged.AddListener(OnMouseChange);
+        ControllerSensi.onValueChanged.AddListener(OnControllerChange);
+
         Back.onClick.AddListener(OnBack);
     }
 
@@ -22,8 +34,23 @@ public class OptionMenu : MonoBehaviour
     }
     void OnChange(float value)
     {
+        FmodVCA.instance.MasterVCA.setVolume(value);
 
-        UpdateUI(value);
+        value = Mathf.Round((value * 100));
+        SoundAll.GetComponentInChildren<TMP_Text>().text = value.ToString() + "%";
+    }
+
+    void OnMouseChange(float value)
+    {
+        value = Mathf.Round((value * 100));
+        CameraController.instance.SetMouseSensitivity(value);
+        MouseSensi.GetComponentInChildren<TMP_Text>().text = value.ToString() + "%";
+    }
+    void OnControllerChange(float value)
+    {
+        value = Mathf.Round((value * 100));
+        CameraController.instance.SetControllerSensitivity(value);
+        ControllerSensi.GetComponentInChildren<TMP_Text>().text = value.ToString() + "%";
     }
     void OnBack()
     {
@@ -32,10 +59,6 @@ public class OptionMenu : MonoBehaviour
     }
 
 
-    void UpdateUI(float value)
-    {
-        value = Mathf.Round((value * 100));
-        SoundAll.GetComponentInChildren<TMP_Text>().text = value.ToString() + "%";
-    }
+
 }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : UIManager
 {
@@ -12,9 +13,24 @@ public class PauseManager : UIManager
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+        bool buttonPressed = false;
+        bool BPressed = false;
+        if (Gamepad.current != null)
+        {
+            buttonPressed = Gamepad.current.startButton.wasPressedThisFrame;
+            BPressed = Gamepad.current.buttonEast.wasPressedThisFrame;
+        }
+            
+        if (Input.GetKeyDown(KeyCode.Escape) || buttonPressed || BPressed)
+        {
             if (getOptionMenuState() == true)
             {
+                if(buttonPressed)
+                {
+                    setOptionMenuState(false);
+                    ResumeGame();
+                    return;
+                }
                 setOptionMenuState(false);
                 setPauseMenuState(true);
                 return;
