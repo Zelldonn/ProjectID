@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
     }
     private void OnOption()
     {
-        manager.setPauseMenuState(true);
+        manager.setOptionMenuState(true);
         manager.setmainMenuState(false);
     }
 }

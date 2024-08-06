@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -17,6 +18,7 @@ public class OptionMenu : MonoBehaviour
 
 
     [SerializeField] PauseManager manager;
+    [SerializeField] UIManager UImanager;
     void Start()
     {
         SoundAll.onValueChanged.AddListener(OnChange);
@@ -54,6 +56,13 @@ public class OptionMenu : MonoBehaviour
     }
     void OnBack()
     {
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+
+            UImanager.setOptionMenuState(false);
+            UImanager.setmainMenuState(true);
+            return;
+        }
         manager.setOptionMenuState(false);
         manager.setPauseMenuState(true);
     }

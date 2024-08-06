@@ -13,56 +13,80 @@ public class PauseManager : UIManager
     
     void Update()
     {
-        bool buttonPressed = false;
+        bool startPressed = false;
         bool BPressed = false;
         if (Gamepad.current != null)
         {
-            buttonPressed = Gamepad.current.startButton.wasPressedThisFrame;
+            startPressed = Gamepad.current.startButton.wasPressedThisFrame;
             BPressed = Gamepad.current.buttonEast.wasPressedThisFrame;
         }
-            
-        if (Input.GetKeyDown(KeyCode.Escape) || buttonPressed || BPressed)
-        {
-            if (getOptionMenuState() == true)
-            {
-                if(buttonPressed)
-                {
-                    setOptionMenuState(false);
-                    ResumeGame();
-                    return;
-                }
-                setOptionMenuState(false);
-                setPauseMenuState(true);
-                return;
-            }
 
+        if(startPressed)
+        {
+            if (isPaused)
+            {
+                ForceResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape) || BPressed)
+        {
             if (isPaused)
             {
                 ResumeGame();
             }
             else
             {
+                if (BPressed)
+                    return;
                 PauseGame();
             }
-            
         }
+
     }
 
     public void PauseGame()
     {
         Cursor.visible = true;
         setPauseMenuState(true);
+        setOptionMenuState(false);
         Time.timeScale = 0;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
+        if(getOptionMenuState() == true)
+        {
+            CloseOption();
+            return;
+        }
         setPauseMenuState(false);
+        setOptionMenuState(false);
         Time.timeScale = 1;
         isPaused = false;
 
         Cursor.visible = false;
+    }
 
+    public void ForceResumeGame()
+    {
+        setPauseMenuState(false);
+        setOptionMenuState(false);
+        Time.timeScale = 1;
+        isPaused = false;
+
+        Cursor.visible = false;
+    }
+
+    public void CloseOption()
+    {
+        setOptionMenuState(false);
+        setPauseMenuState(true);
     }
 }

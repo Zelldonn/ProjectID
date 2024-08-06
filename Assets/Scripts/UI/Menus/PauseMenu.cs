@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] Button Resume;
     [SerializeField] Button Options;
+    [SerializeField] Button Menu;
     [SerializeField] Button Quit;
 
     [SerializeField] PauseManager manager;
@@ -14,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     {
         Resume.onClick.AddListener(OnResume);
         Options.onClick.AddListener(OnOption);
+        Menu.onClick.AddListener(OnMenu);
         Quit.onClick.AddListener(OnQuit);
     }
 
@@ -35,5 +37,9 @@ public class PauseMenu : MonoBehaviour
     {
         manager.setPauseMenuState(false);  
         manager.setOptionMenuState(true);
+    }
+    private void OnMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
